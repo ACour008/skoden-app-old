@@ -1,0 +1,129 @@
+<!doctype html>
+<html ng-app="skodenApp">
+<head>
+  <meta charset="UTF-8">
+  <title>The Skoden Chronicles</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular-route.min.js"></script>
+  <script src="../static/scripts/app.js"></script>
+  <script src="../static/scripts/ngMeta.js"></script>
+  <script src="../static/scripts/controllers.js"></script>
+  <script src="../static/scripts/directives.js"></script>
+	<script src="../static/scripts/services.js"></script>
+  <script src="../static/scripts/filters.js"></script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="twitter:card" content="{{ ngMeta['twitter:card'] }}" />
+  <meta property="twitter:site" content="{{ ngMeta['twitter:site'] }}" />
+  <meta property="twitter:creator" content="{{ ngMeta['twitter:creator'] }}" />
+  <meta property="og:site_name" content="{{ ngMeta['og:site_name'] }}"/>
+  <meta property="og:title" content="{{ ngMeta['og:title'] }}"/>
+  <meta property="og:description" content="{{ ngMeta['og:description'] }}"/>
+  <meta property="og:image" content="{{ ngMeta['og:image'] }}"/>
+  <meta property="og:url" content="{{ ngMeta['og:url'] }}"/>
+  
+  <base href="/" />
+  
+  <link rel="shortcut icon" href="../static/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../static/img/favicon.ico" type="image/x-icon">  
+  <link rel="stylesheet" href="../static/styles/simplegrid.css" type="text/css" />
+  <link rel="stylesheet" href="../static/styles/styles.css" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-99681181-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+	<div class="page" ng-controller="MainCtrl">
+		<header class="grid ng-cloak">
+		  <nav>
+		  	<ul>
+		   		<li><a href="#/podcasts/">Podcasts</a></li>
+		   		<li><a href="#/team/">Team</a></li>
+		   		<li><a href="#/news/">News</a></li>
+		    	<li><a href="#/" ng-show="windowWidth > 599"><img src="../static/img/logo.png"/></a><a href="#/" ng-show="windowWidth < 599">Home</a></li>
+		    	<li><a href="#/">Media</a></li>
+		    	<li><p id="open-modal">Support</p></li>
+		    	<li><a href="#/contact/">Contact</a></li>
+		  	</ul>
+		  </nav>
+		  <div id="modal-box">
+		  	<div class="modal-content">
+		  		<div class="modal-header">
+		  			<span class="close"><img src="../static/img/cancel.png"/></span>
+		  			<h3>Show your Support</h3>
+		  		</div>
+		  		<div class="modal-body">
+		  			<div id="modal-right">
+		  				<a href="https://www.patreon.com/bePatron?u=5221800" target="_blank" class="patreon-link">
+		  					<img src="../static/img/patreon_logo.png"/>
+		  					<p>Become a Patreon!</p>
+		  				</a>
+		  				<p class="center small bold">Can't afford it right now? <a href="https://itunes.apple.com/ca/podcast/skoden-chronicles/id1213498333?mt=2">How about a 5-star rating on iTunes instead.</a></p>
+		  		  </div>
+		  		  <div id="modal-left">
+		  				<h4>Look...</h4>
+		  				<p>We get the irony in trying to capitalize off of podcasts focusing on decolonization. We really do, but your contributions will help with such costs as:</p>
+		  				<ul>
+		  					<li>Web and hosting space</li>
+		  					<li>Maintaining our gear</li>
+		  					<li>Brining in more special guests!</li>
+		  				</ul>
+		  				<p>Your $1, $5, or $10 monthly donation will go along way to support independent indigenous programming.</p>
+		  				<p>You'll also get some great stuff for doing it, so really.. it's not like we're not like your band council. We'll put your money to good use.</p>
+		  			</div>
+		  		</div>
+		  	</div>
+		  </div> <!-- end modal-box -->
+		</header>
+		<div class="social-media">
+			<ul>
+		 	  <li><a href="#" target="_blank"><img src="../static/img/facebook-icon.png"/></a>
+			  </li>
+			  <li><a href="#" target="_blank"><img src="../static/img/twitter-icon.png"/></a>
+			  </li>
+			  <li><a href="#" target="_blank"><img src="../static/img/rss-icon.png"/></a>
+			  </li>
+			  <li><a href="#" target="_blank"><img src="../static/img/instagram-icon.png"/></a>
+			  </li>
+			  <li><a href="#" target="_blank"><img src="../static/img/soundcloud-icon.png"/></a>
+			  </li>
+			  <li><a href="#" target="_new"><img src="../static/img/itunes-icon.png"/></a>
+			  </li>
+		  </ul>
+	  </div> <!-- end social media -->
+		<h2 class="col-1-1" id="page-title" ng-bind="main.title"></h2>
+		<div class="main grid grid-pad ng-cloak">
+			<div class="main-col col-8-12">
+				<div class="content ng-view">
+				</div>
+			</div> <!-- end main-col -->
+			<div class="sidebar col-4-12">
+				<player></player>
+				<div class="about-skoden">
+					<h3>About Skoden</h3>
+					<p>The Skoden Chronicles is an independent media platform for one angry Ojibwe boy. The podcast looks at contemporary indigenous topics and concepts that are relevant in many indigenous peoples' lives, and twice a month our host forces different ideas through a fine mesh screen of theoretical and practical de-colonial frameworks. Of course, he also sprinkles his own weird and sometimes dark NDN humor all over the place to give Skoden Chronicles that special something-something.</p>
+					<p>Skoden is Native slang for 'let's go then', especially when you wanna start a fight. And Ashley knows how to fight. He starts a lot of beef because podcasting is like jail. Sometimes, you just have to assert yourself.</p>
+					<p class="bold">#Skoden</p>
+				</div> <!-- end about-skoden -->
+				<a href="/#/podcasts" class="more-button">More Podcasts...</a>
+	    </div> <!-- end sidebar -->
+	</div> <!-- end main -->
+	<div class="footer grid grid-pad">
+		<p class="col-1-1">Postcast shared on this website is shared with: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_new">Creative Commons Attribution-NonCommerical-ShareAlike 4.0 International</a></p>
+		<p class="col-1-1">Skoden Chronicles is a <a href="#">Misko-Wiiyaas Production</a>, created by our host.</p>
+		<p class="col-1-1 small bold" style="color:rgb(100,100,100)">Made with Flask, AngularJS, UWSGI, NGINX, and a whole lot of decolonial love</p>
+	</div> <!-- end footer-->
+  </div> <!-- end page -->
+  <script src="../static/scripts/modal.js" type="text/javascript"></script>
+  <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js" type="text/javascript"></script>
+  <script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
+</body>
+</html>

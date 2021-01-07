@@ -1,0 +1,26 @@
+<div class="set-container" ng-repeat="set in data | orderBy:'created_at'">
+	<div class="setlist col-1-1">
+		<div class="col-2-3">
+			<h4 id="podcast-title" class="col-1-1">{{set.title}}</h4>
+			<p class="small">Created: {{ set.created_at | date: "MMM dd, yyyy" }}</p>
+			<p class="small">Last Edited: {{ set.last_modified | date: "MMM dd, yyyy" }}</p>
+			<p ng-bind-html="set.description"></p> 
+		</div>
+		<img class="col-1-3" src="{{ set.artwork_url | resize }}" />
+	</div>
+	<div ng-repeat="track in set.tracks | orderBy:'-created_at'" class="track">
+		<h4 id="podcast-title" class="col-1-1"><a href="/view/{{track.permalink}}">{{ track.title }}</a></h4>
+		<div class="col-5-12 container" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
+			<figure><img src="{{track.artwork_url | resize }}" class="col-4-12 image" /></a></figure>
+			<p ng-show="hoverOpts" class="options">
+				<span><a href="/view/{{track.permalink}}">View</a> | <span id="download-link" ng-click="download(track.download_url)">Download</span> | <a href="{{ track.purchase_url }}" target="_blank">iTunes</a></span>
+			</p>
+		</div>
+		<div class="track-info col-7-12">
+			<div class="tags">
+				<span ng-repeat="tag in track.tag_list">{{ tag }}</span>
+			</div>
+			<p class="small">Released: {{ track.created_at | date: "MMM dd, yyyy" }}</p>
+			<div ng-bind-html="track.description"></div>
+	</div>
+</div>

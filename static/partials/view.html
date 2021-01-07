@@ -1,0 +1,16 @@
+<p class="small bold breadcrumb-title">{{main.playlists.currentPlaylist.title}}</p>
+<p class="small breadcrumb-nav">&lt;&lt;Prev Episode | {{data.title}} | Next Episode&gt;&gt;</p>
+<h4 id="podcast-title" class="col-1-1">{{data.title}}</h4>
+<div class="col-5-12 container" ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
+	<figure><img src="{{data.artwork_url | resize }}" class="col-4-12 image" /></figure>
+	<p ng-show="hoverOpts" class="options">
+		<span><span ng-show="!playing" ng-click="play(data)">Play</span><span ng-show="playing" ng-click="pause()">Pause</span> | <span id="download-link" ng-click="download(data.download_url)">Download</span> | <a href="{{data.purchase_url}}" target="_blank">iTunes</a></span>
+	</p>
+</div>
+<div class="track-info col-7-12"> 
+	<div class="tags">
+		<span ng-repeat="tag in data.tag_list">{{tag}}</span>
+  </div>
+	<p class="small">Released: {{data.created_at | date: "MMM dd, yyyy"}}</p>
+	<div ng-bind-html="data.description"></div>
+</div>

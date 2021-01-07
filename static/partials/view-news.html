@@ -1,0 +1,8 @@
+<div id="post">
+	<p class="small"><span class="link" ng-click="goBack()">&lt;&lt;News</span> | {{post.attributes.title}}</p>
+	<h4 id="podcast-title" class="col-1-1">{{post.attributes.title}}</h4>
+	<div class = "track-info">
+		<p class="small">Published: {{post.attributes.date_created | date: "MMM dd, yyyy" }}</p>
+		<div class="story" ng-bind-html="post.attributes.body"></div>
+	</div>
+</div>

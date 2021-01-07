@@ -1,0 +1,11 @@
+<div>
+	<div class="posts col-1-2" ng-repeat="track in playlist">
+    <a class="post" href="/#/view/{{track.permalink}}" ng-click="changeTrackIndex($index)">
+      <figure><img src="{{track.artwork_url | resize }}"></img></figure>
+      <div class="title-bar">
+        <p class="post-episode">{{track.title | title }}<span class="post-title">{{track.title | subtitle | cut:true:30:" ..."}}</span></p>
+        <p class="post-date">{{track.created_at | date: "MMM dd, yyyy"}}</p>
+      </div>
+    </a>
+  </div>
+</div>

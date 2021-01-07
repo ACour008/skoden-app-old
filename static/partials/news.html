@@ -1,0 +1,9 @@
+<div class="posts-container" ng-repeat="posts in news_posts">
+	<div class="post">
+		<h4 id="podcast-title" class="col-1-1"><a href="/#/news/{{posts.attributes.permalink}}">{{posts.attributes.title}}</a></h4>
+		<div class = "track-info">
+			<p class="small">Published: {{posts.attributes.date_created | date: "MMM dd, yyyy" }}</p>
+			<div class="story" ng-bind-html="posts.attributes.body"></div>
+		</div>
+	</div>
+</div>

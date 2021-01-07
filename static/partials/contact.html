@@ -1,0 +1,35 @@
+<div class="contact-form">
+	<form name="form" id="form" ng-submit="submitForm(form.$valid)" novalidate="novalidate">
+		<div class="form-section"><span>1</span>Name &amp; Email</div>
+		<div class="form-inner">
+			<label>Your Full Name <input type="text" name="name" placeholder="Jane Runs-With-Does" ng-model="data.name"/></label>
+			
+			<label>Email Address<span class="red">*</span> <input type="email" name="email" placeholder="jane@example.com" ng-model="data.email" required /></label>
+			<p ng-show="form.email.$dirty" class="help-block warning" ng-hide="form.email.$valid || form.email.$pristine">Oowah! Your email address should be like this: <em>"you@example.com"</em></p>
+		</div> 
+		<div class="form-section"><span>2</span>Message</div>
+		<div class="form-inner">
+			
+			<label for="dept-select">Recipient:
+			<select id="dept-select" name="recipient" ng-model="data.recipient" ng-options="rec.value group by rec.group for rec in recipients" ng-init="data.recipient = recipients[0]"></select></label>
+
+			<label for="subject">Subject: <input type="text" name="subject" placeholder="Let me count the ways I love your frybread" ng-model="data.subject"></label>
+			
+			<label>Message<span class="red">*</span><textarea name="message" class="form-message" placeholder="Message" ng-minlength="1" ng-maxlength="2700" ng-trim="false" ng-model="data.message"required></textarea></label>
+			<span class="right small">{{2700 - data.message.length}} characters left</span>
+			<p ng-show="(form.message.$error.$minlength || form.message.$error.$maxlength)" ng-hide="form.message.$valid || form.message.$pristine" class="help-block warning">Ever sick! Make sure your message is between 1 and 2700 chacters!</p>
+		</div>
+		<div class="form-section"><span>3</span>Send Away!</div>
+		<div class="form-buttons">
+			<button type="submit" ng-disabled="form.$invalid" >Send Message</button>
+			<input type="checkbox" name="honeypot" value="robot" class="hidden" ng-click="check()" />
+		</div>
+		<div id="help-block" ng-class="{'info': submitting, 'error': failure, 'success': success}">
+			<p>{{message}}</p>
+			<ul ng-show="failure" class="error-list">
+				<li ng-repeat="(type, err) in errors">{{type | uppercase}}: {{err}}</li>
+			</ul>
+		</div>
+		</div>
+	</form>
+</div>

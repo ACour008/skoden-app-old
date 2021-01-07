@@ -1,0 +1,41 @@
+<!doctype html>
+<head>
+  <meta charset="UTF-8">
+  <title>The Skoden Chronicles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/">
+  
+  <link rel="stylesheet" href="../static/styles/simplegrid.css" type="text/css" />
+  <link rel="stylesheet" href="../static/styles/styles.css" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular-route.min.js"></script>
+  <script src="../static/scripts/app.js"></script>
+  <script src="../static/scripts/controllers.js"></script>d
+  <script src="../static/scripts/directives.js"></script>
+  <script src="../static/scripts/services.js"></script>
+  <script src="../static/scripts/filters.js"></script>
+
+  <style>
+  .center {
+    color: rgb(0, 117, 127);
+    border: 3px solid rgba(0, 117, 127, 1);
+    border-radius: 10px;
+    background:white;
+    position:absolute;
+    top:50%;
+    left:50%;
+    padding:1em;
+    m
+  }
+  </style>
+</head>
+<body ng-app="skodenApp">
+<div class="center">
+<h2>Welcome to the Skoden Chronicles Website!</h2>
+<h3>We will officially be launching May 19, 2016</h3>
+<p>Stay tuned for more details...</p>
+</div>
+</body>
+</html>
