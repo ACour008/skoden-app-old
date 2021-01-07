@@ -3,7 +3,7 @@
 
 ## Details
 - Version: 1.0
-- Frameworks Used: Flask (v.0.12.2), AngularJS (v.1.3.2)
+- Frameworks Used: Flask (v.0.12.1), AngularJS (v.1.3.2)
 - Dependencies:
   - Python 2.7 (ya i know, old right??)
   - Flask 0.12.1
